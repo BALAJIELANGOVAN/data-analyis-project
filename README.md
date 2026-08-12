@@ -52,7 +52,7 @@ The load job infers schema with autodetect rather than declaring types explicitl
 index.html              the dashboard, served by GitHub Pages
 /sql                    star schema DDL and transformation queries
 /python                 BigQuery load job
-olist_model.pbix        Power BI model — the analytical artefact
+                        Power BI model — the analytical artefact
 ```
 
 ## Data quality defects found and fixed
