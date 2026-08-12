@@ -1,0 +1,15 @@
+# Credentials — never commit these
+*.json
+!package.json
+*.pem
+*.key
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

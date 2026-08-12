@@ -1,8 +1,8 @@
-﻿# Olist Marketplace Analytics
+# Olist Marketplace Analytics
 
 End-to-end analysis of the Olist Brazilian e-commerce marketplace: 99,433 orders and R$15.42M of trading revenue between September 2016 and August 2018.
 
-**[View the interactive dashboard →](https://bennguyennuk.github.io/olist-marketplace-analytics/olist_project.html)**
+**[View the interactive dashboard →](https://bennguyennuk.github.io/olist-marketplace-analytics/)**
 
 ---
 
@@ -20,7 +20,7 @@ This project traces negative reviews back to their operational causes, sizes eac
 
 **Almost none of these customers return.** Repeat purchase behaviour after a negative review is close to zero, which is what converts a service problem into a revenue problem.
 
-Full findings, prioritisation and estimated impact are on the [Recommendations page](https://bennguyennuk.github.io/olist-marketplace-analytics/olist_project.html) of the dashboard.
+Full findings, prioritisation and estimated impact are on the [Recommendations page](https://bennguyennuk.github.io/olist-marketplace-analytics/) of the dashboard.
 
 ## Pipeline
 
@@ -42,7 +42,9 @@ Power BI report — the deliverable
 HTML dashboard — presentation layer only
 ```
 
-**Note on the CSV round trip.** The BigQuery environment was read-only for table creation — no permission to persist `CREATE TABLE` output. Rather than abandon the dimensional model, the star schema was built in SQL, materialised to CSV, and re-loaded through a Python job using explicit schemas and `WRITE_TRUNCATE`, which makes a re-run idempotent. It is a workaround, not a design choice, and it is documented here because the constraint shaped the architecture.
+**Note on the CSV round trip.** The BigQuery environment was read-only for table creation — no permission to persist `CREATE TABLE` output. Rather than abandon the dimensional model, the star schema was built in SQL, materialised to CSV, and re-loaded through a Python job using `WRITE_TRUNCATE`, which makes a re-run idempotent. It is a workaround, not a design choice, and it is documented here because the constraint shaped the architecture.
+
+The load job infers schema with autodetect rather than declaring types explicitly, and BigQuery inferred several column types incorrectly. Those were corrected downstream in Power Query, which fixes the symptom rather than the cause — declaring an explicit schema per table is the change to make next.
 
 ## Repository contents
 
@@ -79,7 +81,7 @@ Standard time intelligence also could not be used for month-over-month growth on
 
 ## Method and definitions
 
-Every KPI on the dashboard carries a written definition and a stated grain on the [Method page](https://bennguyennuk.github.io/olist-marketplace-analytics/olist_project.html). Known limitations are published on the same page rather than in a footnote.
+Every KPI on the dashboard carries a written definition and a stated grain on the [Method page](https://bennguyennuk.github.io/olist-marketplace-analytics/). Known limitations are published on the same page rather than in a footnote.
 
 Every figure on the dashboard is read back out of the published Power BI measures, so the dashboard and the `.pbix` cannot drift apart.
 
