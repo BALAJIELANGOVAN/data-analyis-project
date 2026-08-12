@@ -14,7 +14,7 @@ This project traces negative reviews back to their operational causes, sizes eac
 
 ## What the analysis found
 
-**Late delivery is the dominant cause, and it is concentrated.** On-time delivery runs at 93.23% overall, but the negative review rate on delivered orders is 12.77% — and it rises sharply with transit duration rather than with lateness alone. Both effects are strong: on-time rate correlates with review score at r = +0.91, transit days at r = −0.80.
+**Late delivery is the dominant cause, and it is concentrated.** On-time delivery runs at 93.23% overall, but the negative review rate on delivered orders is 12.77% — and it tracks transit duration rather than lateness alone. Orders arriving within 7 days draw a 7.55% negative review rate; at 15 to 21 days it is 12.12%, at 26 to 35 days 40.16%, and beyond 35 days 71.98%.
 
 **The problem is geographic before it is operational.** Rio de Janeiro carries 2,619 negative reviews — the largest absolute volume of any state — against R$417,621 of revenue exposed. Prioritising by rate alone would have pointed somewhere else and moved less money.
 
