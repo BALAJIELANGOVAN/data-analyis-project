@@ -462,7 +462,7 @@
 
   <div class="brief">
     <span class="brief-tag">Brief</span>
-    <p>The <b>Head of Operations</b> asked why average review scores slid through the first quarter of 2018 while revenue kept climbing, and what it would cost to stop it. The short answer: revenue is concentrated in a handful of states and categories, goodwill is leaking mostly, though not only, from one cause, and <b>almost none of these customers come back</b>. Every figure below was read out of the published Power BI measures, so this dashboard and the model cannot drift apart.</p>
+    <p><b>Business scenario:</b> an operations team needs to understand why review scores declined while revenue continued to grow, and which issues should be investigated first. The short answer: revenue is concentrated in a handful of states and categories, negative reviews concentrate around one operational factor more than any other, and <b>almost none of these customers come back</b>. This is a self-directed portfolio project &mdash; the scenario is hypothetical and no real stakeholder commissioned it. Every relationship shown is observational: the data supports statements about association, not proof of cause. Every figure below was read out of the published Power BI measures, so this dashboard and the model cannot drift apart.</p>
   </div>
 
   <div class="focus-banner" id="focus-banner" role="status">
@@ -936,7 +936,7 @@ function renderOverview() {
 
   document.getElementById("ov-lede").innerHTML = scoped
     ? `Showing <b>${A.label}</b>. Metrics that the underlying extract cannot break down to this level are shown as &mdash; rather than being filled in with the marketplace figure.`
-    : `Olist moved <b>${fmt.brlK(A.revenue)}</b> across <b>${fmt.num(A.orders)}</b> orders, and delivered <b>${fmt.pct(A.completion)}</b> of them. The business is healthy on volume and fragile on goodwill: <b>${fmt.pct(A.negRate)}</b> of reviewed orders came back at two stars or lower. Roughly <b>${fmt.pct(DATA.attribution.excessShare)}</b> of that is attributable to how long delivery took; the remainder sits at a floor that faster delivery does not move. Underneath both sits the structural problem: <b>${A.repeatRate == null ? NA : fmt.pct(1 - A.repeatRate)}</b> of customers never place a second order, so every month of growth has to be bought again from scratch.`;
+    : `Olist moved <b>${fmt.brlK(A.revenue)}</b> across <b>${fmt.num(A.orders)}</b> orders, and delivered <b>${fmt.pct(A.completion)}</b> of them. The business is healthy on volume and fragile on goodwill: <b>${fmt.pct(A.negRate)}</b> of reviewed orders came back at two stars or lower. Roughly <b>${fmt.pct(DATA.attribution.excessShare)}</b> of that sits above the rate the fastest delivery band already runs at, which is the share most closely associated with how long delivery took; the remainder sits at a floor that faster delivery does not move. Underneath both sits the structural problem: <b>${A.repeatRate == null ? NA : fmt.pct(1 - A.repeatRate)}</b> of customers never place a second order, so every month of growth has to be bought again from scratch.`;
 
   const lowStar = FILTER.focus.type === "all" && FILTER.year === "all" ? K.revenueFromLowStar : null;
   document.getElementById("ov-kpis").innerHTML = `
@@ -1819,9 +1819,9 @@ function renderRec() {
 
   document.getElementById("rec-hero").innerHTML = `
     <div class="rec-card a"><span class="num">1</span>
-      <h4>Delivery time is the strongest driver of a bad review</h4>
+      <h4>Delivery time is the factor most closely associated with a bad review</h4>
       <div class="big">${ratio.toFixed(1)}\u00d7</div>
-      <div class="desc">Higher negative review rate past 35 days than within a week. It explains ${fmt.pct(AT.excessShare)} of all negative reviews \u2014 not all of them</div>
+      <div class="desc">Higher negative review rate past 35 days than within a week. ${fmt.pct(AT.excessShare)} of all negative reviews sit above the rate the fastest band already runs at \u2014 not all of them do</div>
       <div class="metrics"><span>35+ days: ${fmt.pct(b[5].negRate)}</span><span>\u2264 7 days: ${fmt.pct(b[0].negRate)}</span></div>
     </div>
     <div class="rec-card b"><span class="num">2</span>
