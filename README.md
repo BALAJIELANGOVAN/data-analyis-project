@@ -37,7 +37,7 @@ BigQuery — modelled layer
    ↓  Power BI connector
 Power Query — type conformance
    ↓
-Power BI semantic model — 9 relationships, 48 measures in 7 folders
+Power BI semantic model — 9 relationships, reusable DAX measure layer in thematic display folders
    ↓
 Power BI report — the deliverable
    ↓  measures exported to pre-computed JSON
