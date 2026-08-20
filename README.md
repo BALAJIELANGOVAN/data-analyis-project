@@ -107,3 +107,5 @@ The HTML dashboard renders with Chart.js. That code was AI-generated and is not 
 ## Data
 
 [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) — Kaggle. Coverage 4 Sep 2016 – 17 Oct 2018; trading analysis restricted to Sep 2016 – Aug 2018, where months are complete.
+#   d a t a - a n a l y i s - p r o j e c t  
+ 
